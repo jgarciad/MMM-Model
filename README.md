@@ -18,7 +18,8 @@ meli_final/
 │       ├── model_benchmark.py                 ← benchmark Prophet vs. 5 modelos alternativos
 │       ├── causal_inference.py                ← elasticidad + DiD (OLS + HC3)
 ├── notebooks/
-│   └── MELI_Informe_Tecnico.ipynb            ← informe técnico completo (importa src/)
+│   └── InformeTecnico.ipynb            ← informe técnico completo (importa src/)
+│   └── ResumenEjecutivo.pptx            ← informe técnico completo (importa src/)
 ├── plots/                                     ← generado automáticamente
 ├── outputs/                                   ← generado automáticamente (incluye caches)
 ├── main.py                                    ← orquestador — ejecutar desde aquí
