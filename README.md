@@ -29,17 +29,7 @@ meli_final/
 
 ## Configuración del Entorno (`meli_env`)
 
-### Opción A — conda (recomendada en Mac/Windows)
-
-```bash
-conda create -n meli_env python=3.10 -y
-conda activate meli_env
-conda install -c conda-forge pandas numpy matplotlib scipy statsmodels -y
-conda install -c conda-forge prophet -y
-conda install -c conda-forge jupyterlab -y
-```
-
-### Opción B — venv + pip
+###  venv + pip
 
 ```bash
 python -m venv meli_env
@@ -65,7 +55,7 @@ python -m ipykernel install --user --name meli_env --display-name "Python 3 (mel
 
 ## Ejecución
 
-###Script de producción
+### Script de producción
 
 El pipeline tiene 5 pasos y soporta los siguientes flags:
 
@@ -77,7 +67,7 @@ El pipeline tiene 5 pasos y soporta los siguientes flags:
 | `python main.py --force-all` | Re-entrena Prophet **y** re-corre el benchmark | ~91 min |
 
 > Los caches están incluidos en `outputs/` para evaluación inmediata sin re-entrenar.
-> Usar `--force-all` solo para reproducir el entrenamiento desde cero.
+> Usar `--force-all` solo para reproducir el entrenamiento desde cero. El tiempo estimado de 90 minutos  varia según las especificaciones de la computadora.
 
 ### Flujo del pipeline
 
@@ -140,10 +130,9 @@ Se detalla de manera técnica los análisis realizados así como los modelos aju
 | 1 | **Problem Node:** North · Electronics · Smartphones | Caída −44.2% post Jul-2023 (único nodo >15%) |
 | 2 | **Efecto Masking:** 30% | Decay $390K absorbido por crecimiento de otros 9 nodos |
 | 3 | **Precio no es la causa** | Elasticidad p=0.365 (no sig.), precio estable $800 ± $15 |
-| 4 | **Impacto causal:** −$22,788/mes | DiD vs. South·Smartphones (tendencias paralelas ✓ HC3) |
-| 5 | **Prophet no siempre es el mejor** | Seasonal Naive gana en Pharma/Decor; trend_month gana en Smartphones |
-| 6 | **Benchmark total sMAPE: 8.3%** | Seleccionando el mejor modelo por serie vía holdout |
-| 7 | **Descuento plano ineficiente** | 8/10 nodos sanos sacrificados sin necesidad |
+| 4 | **Prophet no siempre es el mejor** | Seasonal Naive gana en Pharma/Decor; trend_month gana en Smartphones |
+| 5 | **Benchmark total sMAPE: 8.3%** | Seleccionando el mejor modelo por serie vía holdout |
+| 6 | **Descuento plano ineficiente** | 8/10 nodos sanos sacrificados sin necesidad |
 
 ---
 
@@ -199,15 +188,15 @@ outputs/benchmark_full.csv     ← métricas benchmark de todos los modelos
 Optimización: Grid Search × CV temporal expanding window
 (`initial=548d`, `period=91d`, `horizon=91d`, métrica: RMSE promedio de folds).
 
-### SC
+### Causalidad
 
-Se estima el contrafactual donde se determina como regla de éxito:
+Se estima el contrafactual usando Sinthetyc Control donde se determina como regla de éxito:
 
-*Acum 3M > 88u  -> efecto positivo (80% conf.)
-*Acum 6M > 169u  -> efecto positivo (80% conf.)
+* Acum 3M > 88u  -> efecto positivo (80% conf.)
+* Acum 6M > 169u  -> efecto positivo (80% conf.)
 
 
 ---
 
-## Resumen Ejecutivo (3 oraciones)
-Dentro de la carpeta Notebooks se encuentra un resumen ejecutivo orientado a mostrar resultados para el negocio. 
+## Resumen Ejecutivo 
+Dentro de la carpeta Notebooks se encuentra una presentación ejecutiva orientado a mostrar resultados para el negocio. 
