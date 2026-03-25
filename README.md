@@ -16,10 +16,10 @@ meli_final/
 │       ├── __init__.py
 │       ├── hierarchical_forecast.py           ← Prophet + grid search + Bottom-Up (con cache)
 │       ├── model_benchmark.py                 ← benchmark Prophet vs. 5 modelos alternativos
-│       ├── causal_inference.py                ← elasticidad + DiD (OLS + HC3)
+│       ├── causal_inference.py                ← elasticidad + modelo Synthetic Control
 ├── notebooks/
 │   └── InformeTecnico.ipynb            ← informe técnico completo (importa src/)
-│   └── ResumenEjecutivo.pptx            ← Explicación vista negocio
+│   └── ResumenEjecutivo.pptx            ← explicación vista negocio
 ├── plots/                                     ← generado automáticamente
 ├── outputs/                                   ← generado automáticamente (incluye caches)
 ├── main.py                                    ← orquestador — ejecutar desde aquí
@@ -191,7 +191,7 @@ Optimización: Grid Search × CV temporal expanding window
 
 ### Causalidad
 
-Se estima el contrafactual usando Sinthetyc Control donde se determina como regla de éxito:
+Se estima el contrafactual usando Synthetic Control donde se determina como regla de éxito:
 
 * Acum 3M > 88u  -> efecto positivo (80% conf.)
 * Acum 6M > 169u  -> efecto positivo (80% conf.)
