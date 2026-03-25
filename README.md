@@ -77,7 +77,7 @@ El pipeline tiene 5 pasos  y soporta los siguientes flags:
 [2/5] eda_hierarchical.py      → ranking de nodos, masking, plots 01-03
 [3/5] hierarchical_forecast.py → Prophet + hiperparámetros + plots 04
 [4/5] model_benchmark.py       → benchmark vs. alternativos + plots 15-17
-[5/5] causal_inference.py      → elasticidad + DiD + plots 05-06
+[5/5] causal_inference.py      → elasticidad + SC + plots 05-06
 ```
 
 ### Outputs generados
@@ -91,7 +91,8 @@ El pipeline tiene 5 pasos  y soporta los siguientes flags:
 | `plots/03_problem_node_deep_dive.png` | Problem Node vs. mejor nodo |
 | `plots/04_forecast.png` | Forecast 6M Prophet con IC 95% |
 | `plots/05_elasticity.png` | Elasticidad precio-demanda (log-log) |
-| `plots/06_did_design.png` | Diseño Difference-in-Differences |
+| `plots/06a_sc_diagnostics.png` | Resultados de ajuste del modelo SC |
+| `plots/06b_sc_prospective.png` | Proyección estimada |
 | `plots/15_model_benchmark.png` | sMAPE por modelo — comparativa completa |
 | `plots/16_metrics_summary_table.png` | Tabla resumen: mejor modelo por serie + agregados |
 | `plots/17_business_projection.png` | Proyección 6M sin intervención |
