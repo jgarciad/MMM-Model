@@ -19,7 +19,7 @@ meli_final/
 │       ├── causal_inference.py                ← elasticidad + DiD (OLS + HC3)
 ├── notebooks/
 │   └── InformeTecnico.ipynb            ← informe técnico completo (importa src/)
-│   └── ResumenEjecutivo.pptx            ← informe técnico completo (importa src/)
+│   └── ResumenEjecutivo.pptx            ← Explicación vista negocio
 ├── plots/                                     ← generado automáticamente
 ├── outputs/                                   ← generado automáticamente (incluye caches)
 ├── main.py                                    ← orquestador — ejecutar desde aquí
@@ -58,7 +58,7 @@ python -m ipykernel install --user --name meli_env --display-name "Python 3 (mel
 
 ### Script de producción
 
-El pipeline tiene 5 pasos y soporta los siguientes flags:
+El pipeline tiene 5 pasos  y soporta los siguientes flags:
 
 | Comando | Qué hace | Tiempo estimado |
 |---------|----------|-----------------|
